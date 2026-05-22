@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nova Reserva - Sala 360 Gov.br</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <div class="offline-banner" role="alert">Está offline. Algumas funções podem não estar disponíveis.</div>
+  
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div>
+        <div>
+          <div class="brand" style="flex-direction: column; align-items: flex-start; gap: 4px;">
+          <img src="assets/img/logo.png" alt="Logo Sala 360" class="custom-logo">
+          <p class="eyebrow" style="margin: 0; padding-left: 4px;">Espaço Coworking Gov.br</p>
+        </div>
+        <nav class="menu">
+          <a class="menu-link" href="dashboard.html">Dashboard</a>
+          <a class="menu-link" href="agenda.html">Agenda</a>
+          <a class="menu-link active" href="nova-reserva.html">Nova reserva</a>
+          <a class="menu-link" href="minhas-reservas.html">Minhas reservas</a>
+          <a class="menu-link admin-only hidden" href="admin.html">Painel admin</a>
+        </nav>
+      </div>
+      <div class="sidebar-footer">
+        <button class="ghost-btn" id="themeToggle" type="button">🌙 Tema</button>
+        <button class="danger-btn" id="logoutBtn" type="button">Sair</button>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <div>
+          <span class="eyebrow">Cadastro de reserva</span>
+          <h2>Nova Reserva</h2>
+        </div>
+        <div class="user-chip" id="userChip"></div>
+      </header>
+
+      <section class="grid two">
+        <article class="card form-card">
+          <h3>Preencha os dados da reserva</h3>
+          <p class="eyebrow" style="margin-bottom: 16px; line-height: 1.5;">
+            As Salas360º podem ser utilizadas por servidores da administração pública federal, bem como empregados, colaboradores, estagiários, terceirizados, alunos e grupo de estudos desde que devidamente identificados.
+          </p>
+          
+          <form id="reserveForm" class="form-grid" novalidate>
+            <div class="field full-span" id="field-vaga">
+              <label for="reserveVaga">Selecione o Espaço (Vaga)</label>
+              <select id="reserveVaga">
+                <option value="">Escolha uma vaga...</option>
+                <option value="1">Vaga 1 (Mesa Padrão)</option>
+                <option value="2">Vaga 2 (Computador + Internet)</option>
+                <option value="3">Vaga 3 (Mesa Padrão)</option>
+                <option value="4">Vaga 4 (Mesa Padrão)</option>
+              </select>
+              <span class="error-text"></span>
+            </div>
+
+            <div class="field" id="field-name">
+              <label for="reserveName">Nome do solicitante</label>
+              <input type="text" id="reserveName" placeholder="Seu nome completo">
+              <span class="error-text"></span>
+            </div>
+
+            <div class="field" id="field-purpose">
+              <label for="reservePurpose">Finalidade</label>
+              <input type="text" id="reservePurpose" placeholder="Ex: Estudo, Reunião">
+              <span class="error-text"></span>
+            </div>
+
+            <div class="field full-span" id="field-date">
+              <label for="reserveDate">Data da Reserva</label>
+              <input type="date" id="reserveDate">
+              <span class="error-text"></span>
+            </div>
+
+            <div class="field" id="field-start">
+              <label for="reserveStartTime">Horário de início (07:00 a 19:00)</label>
+              <input type="time" id="reserveStartTime">
+              <span class="error-text"></span>
+            </div>
+
+            <div class="field" id="field-end">
+              <label for="reserveEndTime">Horário de fim</label>
+              <input type="time" id="reserveEndTime">
+              <span class="error-text"></span>
+            </div>
+
+            <div class="form-actions full-span">
+              <button type="submit" class="primary-btn">Confirmar Reserva</button>
+              <button type="button" class="secondary-btn" id="clearReserveForm">Limpar</button>
+            </div>
+          </form>
+        </article>
+
+        <article class="card">
+          <h3>Ocupação do Dia Selecionado</h3>
+          <p class="eyebrow">Acompanhe as vagas ocupadas na data escolhida.</p>
+          <div id="schedulePreview" class="list-stack mtop"></div>
+        </article>
+      </section>
+    </main>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/utils.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/reserva.js"></script>
+</body>
+</html>

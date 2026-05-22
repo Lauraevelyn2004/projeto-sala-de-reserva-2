@@ -1,0 +1,152 @@
+/* DESIGN SYSTEM & VARIÁVEIS GLOBAIS */
+:root {
+  --bg: #f5f7fb;
+  --surface: #ffffff;
+  --surface-2: #eef3ff;
+  --text: #182033;
+  --muted: #54607a;
+  --primary: #2d6cdf;
+  --primary-dark: #1d4fb8;
+  --success: #2b8a3e;
+  --danger: #c92a2a;
+  --border: #dbe2f0;
+  --shadow: 0 12px 30px rgba(24, 32, 51, 0.08);
+  --radius: 18px;
+}
+
+[data-theme="dark"] {
+  --bg: #0f172a;
+  --surface: #182133;
+  --surface-2: #1d2940;
+  --text: #eef3ff;
+  --muted: #a8b4cc;
+  --primary: #6ea8fe;
+  --primary-dark: #9bc1ff;
+  --success: #5cd07c;
+  --danger: #ff879d;
+  --border: #2c3a55;
+  --shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); }
+a { text-decoration: none; color: inherit; }
+button, input, select, textarea { font: inherit; }
+h1, h2, h3, h4 { margin: 0 0 10px 0; }
+*:focus-visible { outline: 3px solid var(--primary); outline-offset: 2px; }
+
+/* =========================================
+   1. LAYOUT DA TELA DE LOGIN (CORREÇÃO)
+========================================= */
+.auth-body { min-height: 100vh; display: grid; place-items: center; padding: 24px; }
+.auth-layout-single { max-width: 500px; width: 100%; margin: 0 auto; }
+.auth-card { padding: 32px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); }
+.auth-brand-center { display: flex; flex-direction: column; align-items: center; text-align: center; margin-bottom: 24px; gap: 8px; }
+
+/* Lógica das Abas (Esconde as que não estão ativas) */
+.tab-panel { display: none; }
+.tab-panel.active { display: block; animation: fadeIn 0.3s ease; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+
+/* Botões de navegação no login */
+.login-links { display: flex; justify-content: space-between; margin-top: 16px; }
+.link-btn { background: transparent; color: var(--primary); border: none; font-weight: 700; cursor: pointer; padding: 8px 0; }
+.link-btn:hover { text-decoration: underline; }
+.auth-actions-bottom { margin-top: 24px; display: flex; justify-content: center; }
+
+/* =========================================
+   2. FORMULÁRIOS E FEEDBACK IMEDIATO (ERROS)
+========================================= */
+.field { display: grid; gap: 8px; margin-bottom: 16px; position: relative; }
+label { font-weight: 600; }
+input, select, textarea { width: 100%; padding: 13px 14px; border-radius: 12px; border: 1px solid var(--border); background: var(--bg); color: var(--text); min-height: 44px; transition: 0.2s; }
+input:focus, select:focus, textarea:focus { outline: 2px solid var(--primary); outline-offset: 2px; }
+
+/* Classe aplicada quando há erro */
+.field.error input, .field.error select { border-color: var(--danger); background-color: rgba(201, 42, 42, 0.03); box-shadow: 0 0 0 3px rgba(201, 42, 42, 0.15); }
+.error-text { color: var(--danger); font-size: 13px; font-weight: 600; display: none; margin-top: -4px; animation: slideDown 0.2s ease; }
+.field.error .error-text { display: block; }
+@keyframes slideDown { from { opacity: 0; transform: translateY(-5px); } to { opacity: 1; transform: translateY(0); } }
+
+/* Botões Globais */
+.primary-btn, .secondary-btn, .ghost-btn, .danger-btn { border: none; border-radius: 14px; cursor: pointer; transition: .2s ease; min-height: 44px; display: inline-flex; justify-content: center; align-items: center; font-weight: 600; }
+.primary-btn { background: var(--primary); color: #fff; padding: 12px 18px; }
+.primary-btn:hover { background: var(--primary-dark); }
+.secondary-btn, .ghost-btn { background: var(--surface-2); color: var(--text); padding: 12px 16px; }
+.danger-btn { background: rgba(201,42,42,.12); color: var(--danger); padding: 12px 16px; }
+.full { width: 100%; }
+
+/* =========================================
+   3. LAYOUT PRINCIPAL (DASHBOARD/AGENDA)
+========================================= */
+.app-shell { min-height: 100vh; display: grid; grid-template-columns: 280px 1fr; }
+.sidebar { background: var(--surface); border-right: 1px solid var(--border); padding: 24px; display: flex; flex-direction: column; justify-content: space-between; gap: 24px; }
+.brand { display: flex; gap: 14px; align-items: center; margin-bottom: 24px; }
+.brand-logo { width: 56px; height: 56px; display: grid; place-items: center; border-radius: 16px; background: var(--surface-2); color: var(--primary); }
+.brand-logo svg { width: 32px; }
+.menu { display: flex; flex-direction: column; gap: 10px; }
+.menu-link { padding: 14px 16px; text-align: left; background: transparent; color: var(--text); font-weight: 600; border-radius: 12px; min-height: 44px; }
+.menu-link:hover, .menu-link.active { background: var(--surface-2); color: var(--primary); }
+
+.main-content { padding: 24px; }
+.topbar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; }
+.grid { display: grid; gap: 20px; }
+.two { display: grid; grid-template-columns: 2fr 1fr; }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); padding: 26px; }
+
+.eyebrow { display: inline-block; margin-bottom: 6px; font-size: 14px; color: var(--muted); }
+.user-chip, .badge { display: inline-flex; align-items: center; gap: 8px; padding: 8px 12px; border-radius: 999px; font-size: 14px; font-weight: 700; background: var(--surface-2); color: var(--primary); }
+.section-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 18px; }
+
+/* Listas e Cards de Reserva */
+.list-stack { display: grid; gap: 14px; }
+.slot-card, .reservation-card { display: flex; flex-direction: column; gap: 12px; border: 1px solid var(--border); border-radius: 14px; padding: 16px; background: var(--surface); }
+.slot-header { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 10px; border-bottom: 1px solid var(--border); padding-bottom: 10px; }
+.status-badge { padding: 4px 10px; border-radius: 6px; font-size: 12px; font-weight: bold; }
+.status-badge.active { background: rgba(43, 138, 62, 0.15); color: var(--success); }
+.status-badge.cancelled { background: rgba(201, 42, 42, 0.15); color: var(--danger); }
+
+.form-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.full-span { grid-column: 1 / -1; }
+.form-actions { display: flex; gap: 12px; margin-top: 10px; }
+
+/* =========================================
+   4. COMPONENTES EXTRAS (TOAST, MODAL, IMG)
+========================================= */
+.toast { position: fixed; right: 20px; bottom: 20px; padding: 14px 18px; border-radius: 12px; opacity: 0; transform: translateY(12px); transition: .25s ease; font-weight: bold; display: flex; align-items: center; gap: 10px; z-index: 1000;}
+.toast.show { opacity: 1; transform: translateY(0); }
+.toast.success { background: var(--success); color: white; }
+.toast.error { background: var(--danger); color: white; }
+.toast.info { background: var(--text); color: var(--bg); }
+
+.empty-state { text-align: center; padding: 30px; color: var(--muted); background: var(--surface-2); border-radius: 12px; }
+.offline-banner { display: none; background: var(--danger); color: white; text-align: center; padding: 10px; font-weight: bold; width: 100%; position: sticky; top: 0; z-index: 1000; }
+body.is-offline .offline-banner { display: block; }
+.hidden { display: none !important; }
+.info-box { background: var(--surface-2); border-radius: 14px; padding: 14px 16px; margin-top: 16px; font-size: 14px; }
+
+.modal { position: fixed; inset: 0; background: rgba(0,0,0,.45); display: grid; place-items: center; padding: 20px; z-index: 2000; }
+.modal-card { width: min(100%, 420px); background: var(--surface); border-radius: 18px; padding: 24px; box-shadow: var(--shadow); }
+.modal-actions { display: flex; justify-content: flex-end; gap: 10px; margin-top: 20px; }
+
+/* Tamanhos do Logo Customizado da Sala 360 */
+/* TAMANHOS DO LOGO CUSTOMIZADO (VERSÃO MAIOR) */
+.custom-logo {
+  height: 180px; /* Aumentado de 52px para 75px no menu lateral */
+  width: auto;
+  object-fit: contain;
+}
+
+.auth-logo {
+  height: 200px; /* Aumentado de 80px para 130px na tela de login */
+  width: auto;
+  object-fit: contain;
+  margin-bottom: 16px;
+}
+
+/* Responsivo */
+@media (max-width: 980px) {
+  .app-shell, .two, .form-grid { grid-template-columns: 1fr; }
+  .topbar { flex-direction: column; align-items: flex-start; gap: 16px; }
+  .form-actions { flex-direction: column; }
+}

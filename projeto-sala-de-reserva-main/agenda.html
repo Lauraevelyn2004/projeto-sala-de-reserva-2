@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agenda - Sala 360</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div>
+        <div>
+          <div class="brand" style="flex-direction: column; align-items: flex-start; gap: 4px;">
+          <img src="assets/img/logo.png" alt="Logo Sala 360" class="custom-logo">
+          <p class="eyebrow" style="margin: 0; padding-left: 4px;">Espaço Coworking Gov.br</p>
+        </div>
+        <nav class="menu">
+          <a class="menu-link" href="dashboard.html">Dashboard</a>
+          <a class="menu-link active" href="agenda.html">Agenda</a>
+          <a class="menu-link" href="nova-reserva.html">Nova reserva</a>
+          <a class="menu-link" href="minhas-reservas.html">Minhas reservas</a>
+          <a class="menu-link admin-only hidden" href="admin.html">Painel admin</a>
+        </nav>
+      </div>
+      <div class="sidebar-footer">
+        <button class="ghost-btn" id="themeToggle" type="button">🌙 Tema</button>
+        <button class="danger-btn" id="logoutBtn" type="button">Sair</button>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <div>
+          <span class="eyebrow">Visualização de horários</span>
+          <h2>Agenda da Sala 360</h2>
+        </div>
+        <div class="user-chip" id="userChip"></div>
+      </header>
+
+      <article class="card">
+        <div class="section-head">
+          <h3>Agenda da sala</h3>
+          <div class="legend">
+            
+            <span><i class="dot occupied"></i>Reservado</span>
+          </div>
+        </div>
+        <div id="agendaList" class="agenda-list"></div>
+      </article>
+    </main>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/utils.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/agenda.js"></script>
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Painel Admin - Sala 360</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div>
+        <div class="brand">
+          <div class="brand-logo">
+            <svg viewBox="0 0 64 64" fill="none">
+              <rect x="8" y="10" width="48" height="44" rx="10" stroke="currentColor" stroke-width="4"></rect>
+              <path d="M20 6V18M44 6V18M18 28H46M22 38H32M36 38H42M22 46H28M32 46H42" stroke="currentColor" stroke-width="4" stroke-linecap="round"></path>
+            </svg>
+          </div>
+          <div>
+            <h1>Sala 360</h1>
+            <p>Reservas do campus</p>
+          </div>
+        </div>
+        <nav class="menu">
+          <a class="menu-link" href="dashboard.html">Dashboard</a>
+          <a class="menu-link" href="agenda.html">Agenda</a>
+          <a class="menu-link" href="nova-reserva.html">Nova reserva</a>
+          <a class="menu-link" href="minhas-reservas.html">Minhas reservas</a>
+          <a class="menu-link active admin-only" href="admin.html">Painel admin</a>
+        </nav>
+      </div>
+      <div class="sidebar-footer">
+        <button class="ghost-btn" id="themeToggle" type="button">🌙 Tema</button>
+        <button class="danger-btn" id="logoutBtn" type="button">Sair</button>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <div>
+          <span class="eyebrow">Área administrativa</span>
+          <h2>Painel administrativo</h2>
+        </div>
+        <div class="user-chip" id="userChip"></div>
+      </header>
+
+      <section class="grid two">
+        <article class="card">
+          <div class="section-head"><h3>Todas as reservas</h3></div>
+          <div id="allReservations" class="list-stack"></div>
+        </article>
+
+        <article class="card form-card">
+          <h3>Cadastrar responsável</h3>
+          <form id="responsavelForm">
+            <div class="field">
+              <label for="responsavelName">Nome completo</label>
+              <input type="text" id="responsavelName" required>
+            </div>
+            <div class="field">
+              <label for="responsavelEmail">E-mail</label>
+              <input type="email" id="responsavelEmail" required>
+            </div>
+            <div class="field">
+              <label for="responsavelPassword">Senha</label>
+              <input type="password" id="responsavelPassword" required>
+            </div>
+            <button type="submit" class="primary-btn full">Cadastrar responsável</button>
+          </form>
+        </article>
+
+        <article class="card">
+          <div class="section-head"><h3>Responsáveis cadastrados</h3></div>
+          <div id="adminUsers" class="list-stack"></div>
+        </article>
+      </section>
+    </main>
+  </div>
+  <div class="field">
+  <label for="responsavelPerfil">Perfil</label>
+  <select id="responsavelPerfil" required>
+    <option value="usuario">Usuário</option>
+    <option value="admin">Administrador</option>
+  </select>
+</div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <div class="modal hidden" id="adminCancelModal" aria-hidden="true">
+  <div class="modal-card" role="dialog" aria-modal="true">
+    <div class="section-head simple">
+      <h3>Cancelar Reserva</h3>
+      <p class="eyebrow">Esta ação enviará uma notificação ao usuário.</p>
+    </div>
+    
+    <form id="adminCancelForm">
+      <div class="field">
+        <label for="cancelReason">Motivo do cancelamento</label>
+        <textarea id="cancelReason" rows="3" required 
+                  placeholder="Ex: Manutenção na rede elétrica programada para o período."></textarea>
+      </div>
+      <div class="modal-actions">
+        <button type="button" class="secondary-btn" id="closeAdminCancelModal">Voltar</button>
+        <button type="submit" class="danger-btn">Confirmar Cancelamento</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/utils.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/admin.js"></script>
+</body>
+</html>

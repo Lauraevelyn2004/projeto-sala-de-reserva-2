@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Sala 360</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="auth-body">
+  <a href="#loginCard" class="skip-link">Pular para o conteúdo</a>
+  <main class="auth-layout auth-layout-single">
+    <section class="card auth-card" id="loginCard">
+      <div class="brand auth-brand-center">
+        <div class="brand-logo">
+          <svg viewBox="0 0 64 64" fill="none" aria-hidden="true">
+            <rect x="8" y="10" width="48" height="44" rx="10" stroke="currentColor" stroke-width="4"></rect>
+            <path d="M20 6V18M44 6V18M18 28H46M22 38H32M36 38H42M22 46H28M32 46H42" stroke="currentColor" stroke-width="4" stroke-linecap="round"></path>
+          </svg>
+        </div>
+        <div>
+          <span class="eyebrow">Sistema de reservas</span>
+          <h1>Sala 360</h1>
+        </div>
+      </div>
+
+      <section class="tab-panel active" id="tab-login">
+        <form id="loginForm">
+          <div class="field">
+            <label for="email">E-mail</label>
+            <input type="email" id="email" placeholder="Digite seu e-mail" required>
+          </div>
+          <div class="field">
+            <label for="password">Senha</label>
+            <input type="password" id="password" placeholder="Digite sua senha" required>
+          </div>
+          <div class="field">
+            <label for="role">Perfil</label>
+            <select id="role" required>
+              <option value="">Selecione</option>
+              <option value="usuario">Usuário</option>
+              <option value="admin">Administrador</option>
+            </select>
+          </div>
+          <button type="submit" class="primary-btn full">Entrar</button>
+        </form>
+
+        <div class="login-links">
+          <button type="button" class="link-btn auth-link-btn" id="openRegisterBtn">Cadastre-se</button>
+          <button type="button" class="link-btn auth-link-btn" id="openForgotBtn">Esqueci a senha</button>
+        </div>
+      </section>
+
+      <section class="tab-panel" id="tab-cadastro">
+        <div class="section-head simple">
+          <div>
+            <span class="eyebrow">Novo usuário</span>
+            <h2>Cadastre-se</h2>
+          </div>
+          <button type="button" class="ghost-btn" id="backToLoginFromRegister">Voltar</button>
+        </div>
+        <form id="registerForm">
+          <div class="field">
+            <label for="registerName">Nome completo</label>
+            <input type="text" id="registerName" required>
+          </div>
+          <div class="field">
+            <label for="registerEmail">E-mail</label>
+            <input type="email" id="registerEmail" required>
+          </div>
+          <div class="field">
+            <label for="registerPassword">Senha</label>
+            <input type="password" id="registerPassword" required>
+          </div>
+          <button type="submit" class="primary-btn full">Cadastrar usuário</button>
+          <p class="helper">Aqui só é permitido cadastro de usuário comum.</p>
+        </form>
+      </section>
+
+      <section class="tab-panel" id="tab-senha">
+        <div class="section-head simple">
+          <div>
+            <span class="eyebrow">Recuperação</span>
+            <h2>Esqueci a senha</h2>
+          </div>
+          <button type="button" class="ghost-btn" id="backToLoginFromForgot">Voltar</button>
+        </div>
+        <form id="forgotForm">
+          <div class="field">
+            <label for="forgotEmail">Informe seu e-mail</label>
+            <input type="email" id="forgotEmail" required>
+          </div>
+          <button type="submit" class="primary-btn full">Recuperar senha</button>
+          <p class="helper">Nesta versão local, a senha cadastrada será exibida na tela para demonstração.</p>
+        </form>
+      </section>
+
+      <div class="info-box">
+        <p><strong>Usuário teste:</strong> aluno@ifsuldeminas.edu.br / 1234</p>
+        <p><strong>Admin teste:</strong> admin@ifsuldeminas.edu.br / admin123</p>
+      </div>
+      <div class="auth-actions-bottom">
+        <button class="ghost-btn" id="themeToggle" type="button">🌙 Tema</button>
+      </div>
+    </section>
+  </main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/utils.js"></script>
+  <script src="assets/js/auth.js"></script>
+</body>
+</html>

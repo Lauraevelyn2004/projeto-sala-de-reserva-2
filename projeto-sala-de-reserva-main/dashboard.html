@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - Sala 360 Gov.br</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+        <div>
+          <div class="brand" style="flex-direction: column; align-items: flex-start; gap: 4px;">
+          <img src="assets/img/logo.png" alt="Logo Sala 360" class="custom-logo">
+          <p class="eyebrow" style="margin: 0; padding-left: 4px;">Espaço Coworking Gov.br</p>
+        </div>
+        <nav class="menu">
+          <a class="menu-link active" href="dashboard.html">Dashboard</a>
+          <a class="menu-link" href="agenda.html">Agenda</a>
+          <a class="menu-link" href="nova-reserva.html">Nova reserva</a>
+          <a class="menu-link" href="minhas-reservas.html">Minhas reservas</a>
+          <a class="menu-link admin-only hidden" href="admin.html">Painel admin</a>
+        </nav>
+      </div>
+      <div class="sidebar-footer">
+        <button class="ghost-btn" id="themeToggle" type="button">🌙 Tema</button>
+        <button class="danger-btn" id="logoutBtn" type="button">Sair</button>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <div>
+          <span class="eyebrow">Sistema de agendamento</span>
+          <h2>Dashboard</h2>
+        </div>
+        <div class="user-chip" id="userChip"></div>
+      </header>
+
+      <section class="grid two">
+        <article class="card stat-card">
+          <span class="stat-label">Reservas ativas</span>
+          <strong id="reservedCount">0</strong>
+          <p>Agendamentos confirmados no sistema local.</p>
+        </article>
+
+         <article class="card">
+          <div class="section-head"><h3>Ações rápidas</h3></div>
+            <div class="action-stack">
+              <a class="primary-btn full anchor-btn" href="nova-reserva.html">Fazer nova reserva</a>
+              <a class="secondary-btn full anchor-btn" href="minhas-reservas.html">Ver minhas reservas</a>
+              <a class="secondary-btn full anchor-btn admin-only hidden" href="admin.html">Abrir painel administrativo</a>
+            </div>
+        </article>
+      </section>
+    </main>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/utils.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/dashboard.js"></script>
+</body>
+</html>
