@@ -83,10 +83,16 @@ function hasConflict(date, startTime, endTime, vagaId, ignoreReservationId = nul
   });
 }
 
+// ==========================================
+// LÓGICA DE TEMAS E MUDANÇA DE LOGO (CORRIGIDA)
+// ==========================================
+
 function applyTheme() {
-  // A variável STORAGE_KEYS vem do data.js
-  const savedTheme = localStorage.getItem(STORAGE_KEYS.theme) || 'light';
+  // Usa string direta para evitar quebras de dependência com data.js
+  const savedTheme = localStorage.getItem('sala360_theme') || 'light';
   document.documentElement.setAttribute('data-theme', savedTheme);
+  updateLogoImage(savedTheme);
+  updateThemeButtonLabel(savedTheme);
 }
 
 function toggleTheme() {
@@ -95,25 +101,27 @@ function toggleTheme() {
   const next = current === 'light' ? 'dark' : 'light';
 
   html.setAttribute('data-theme', next);
-  localStorage.setItem(STORAGE_KEYS.theme, next);
+  localStorage.setItem('sala360_theme', next);
+  updateLogoImage(next);
+  updateThemeButtonLabel(next);
 }
 
-// assets/js/utils.js
+// Altera o texto do botão para dar feedback em tempo real
+function updateThemeButtonLabel(theme) {
+  const themeBtn = document.getElementById('themeToggle');
+  if (themeBtn) {
+    themeBtn.innerHTML = theme === 'dark' ? '☀️ Modo Claro' : '🌙 Modo Escuro';
+  }
+}
 
-function hasConflict(date, startTime, endTime, vagaId) {
-  const start = timeToMinutes(startTime);
-  const end = timeToMinutes(endTime);
-  const reservations = getReservations();
-  
-  return reservations.some(r => {
-    // Ignora se estiver cancelada
-    if (r.status === 'cancelada') return false; 
-    // Verifica conflito de data, vaga e horário
-    if (r.date !== date || String(r.vaga) !== String(vagaId)) return false;
-    
-    const rStart = timeToMinutes(r.startTime || r.time);
-    const rEnd = r.endTime ? timeToMinutes(r.endTime) : rStart + 60;
-    
-    return start < rEnd && end > rStart;
+// Garante a substituição correta da imagem do logo
+function updateLogoImage(theme) {
+  const logos = document.querySelectorAll('.custom-logo');
+  logos.forEach(logo => {
+    if (theme === 'dark') {
+      logo.src = 'assets/img/logodark.png';
+    } else {
+      logo.src = 'assets/img/logo.png';
+    }
   });
 }

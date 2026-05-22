@@ -13,17 +13,9 @@
   <div class="app-shell">
     <aside class="sidebar">
       <div>
-        <div class="brand">
-          <div class="brand-logo">
-            <svg viewBox="0 0 64 64" fill="none">
-              <rect x="8" y="10" width="48" height="44" rx="10" stroke="currentColor" stroke-width="4"></rect>
-              <path d="M20 6V18M44 6V18M18 28H46M22 38H32M36 38H42M22 46H28M32 46H42" stroke="currentColor" stroke-width="4" stroke-linecap="round"></path>
-            </svg>
-          </div>
-          <div>
-            <h1>Sala 360</h1>
-            <p>Reservas do campus</p>
-          </div>
+        <div class="brand" style="flex-direction: column; align-items: flex-start; gap: 4px;">
+          <img src="assets/img/logo.png" alt="Logo Sala 360" class="custom-logo">
+          <p class="eyebrow" style="margin: 0; padding-left: 4px;">Espaço Coworking Gov.br</p>
         </div>
         <nav class="menu">
           <a class="menu-link" href="dashboard.html">Dashboard</a>
@@ -34,8 +26,7 @@
         </nav>
       </div>
       <div class="sidebar-footer">
-        <button class="ghost-btn" id="themeToggle" type="button">🌙 Tema</button>
-        <button class="danger-btn" id="logoutBtn" type="button">Sair</button>
+        <button class="danger-btn full" id="logoutBtn" type="button" style="width: 100%;">Sair</button>
       </div>
     </aside>
 
@@ -45,7 +36,10 @@
           <span class="eyebrow">Área administrativa</span>
           <h2>Painel administrativo</h2>
         </div>
-        <div class="user-chip" id="userChip"></div>
+        <div style="display: flex; align-items: center; gap: 16px;">
+          <button class="ghost-btn" id="themeToggle" type="button">🌙 Tema</button>
+          <div class="user-chip" id="userChip"></div>
+        </div>
       </header>
 
       <section class="grid two">
@@ -80,36 +74,28 @@
       </section>
     </main>
   </div>
-  <div class="field">
-  <label for="responsavelPerfil">Perfil</label>
-  <select id="responsavelPerfil" required>
-    <option value="usuario">Usuário</option>
-    <option value="admin">Administrador</option>
-  </select>
-</div>
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
   <div class="modal hidden" id="adminCancelModal" aria-hidden="true">
-  <div class="modal-card" role="dialog" aria-modal="true">
-    <div class="section-head simple">
-      <h3>Cancelar Reserva</h3>
-      <p class="eyebrow">Esta ação enviará uma notificação ao usuário.</p>
+    <div class="modal-card" role="dialog" aria-modal="true">
+      <div class="section-head simple">
+        <h3>Cancelar Reserva</h3>
+        <p class="eyebrow">Esta ação enviará uma notificação ao usuário.</p>
+      </div>
+      
+      <form id="adminCancelForm">
+        <div class="field">
+          <label for="cancelReason">Motivo do cancelamento</label>
+          <textarea id="cancelReason" rows="3" required placeholder="Ex: Manutenção na rede elétrica programada para o período."></textarea>
+        </div>
+        <div class="modal-actions">
+          <button type="button" class="secondary-btn" id="closeAdminCancelModal">Voltar</button>
+          <button type="submit" class="danger-btn">Confirmar Cancelamento</button>
+        </div>
+      </form>
     </div>
-    
-    <form id="adminCancelForm">
-      <div class="field">
-        <label for="cancelReason">Motivo do cancelamento</label>
-        <textarea id="cancelReason" rows="3" required 
-                  placeholder="Ex: Manutenção na rede elétrica programada para o período."></textarea>
-      </div>
-      <div class="modal-actions">
-        <button type="button" class="secondary-btn" id="closeAdminCancelModal">Voltar</button>
-        <button type="submit" class="danger-btn">Confirmar Cancelamento</button>
-      </div>
-    </form>
   </div>
-</div>
 
   <script src="assets/js/data.js"></script>
   <script src="assets/js/utils.js"></script>

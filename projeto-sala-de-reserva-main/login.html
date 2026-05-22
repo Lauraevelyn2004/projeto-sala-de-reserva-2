@@ -10,20 +10,13 @@
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body class="auth-body">
-  <a href="#loginCard" class="skip-link">Pular para o conteúdo</a>
+
   <main class="auth-layout auth-layout-single">
     <section class="card auth-card" id="loginCard">
-      <div class="brand auth-brand-center">
-        <div class="brand-logo">
-          <svg viewBox="0 0 64 64" fill="none" aria-hidden="true">
-            <rect x="8" y="10" width="48" height="44" rx="10" stroke="currentColor" stroke-width="4"></rect>
-            <path d="M20 6V18M44 6V18M18 28H46M22 38H32M36 38H42M22 46H28M32 46H42" stroke="currentColor" stroke-width="4" stroke-linecap="round"></path>
-          </svg>
-        </div>
-        <div>
-          <span class="eyebrow">Sistema de reservas</span>
-          <h1>Sala 360</h1>
-        </div>
+      
+      <div class="brand auth-brand-center" style="flex-direction: column; align-items: center; gap: 4px; margin-bottom: 24px;">
+        <img src="assets/img/logo.png" alt="Logo Sala 360" class="custom-logo auth-logo">
+        <p class="eyebrow" style="margin: 0;">Espaço Coworking Gov.br</p>
       </div>
 
       <section class="tab-panel active" id="tab-login">
@@ -101,6 +94,7 @@
         <p><strong>Usuário teste:</strong> aluno@ifsuldeminas.edu.br / 1234</p>
         <p><strong>Admin teste:</strong> admin@ifsuldeminas.edu.br / admin123</p>
       </div>
+
       <div class="auth-actions-bottom">
         <button class="ghost-btn" id="themeToggle" type="button">🌙 Tema</button>
       </div>

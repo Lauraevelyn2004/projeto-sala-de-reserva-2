@@ -13,8 +13,7 @@
   <div class="app-shell">
     <aside class="sidebar">
       <div>
-        <div>
-          <div class="brand" style="flex-direction: column; align-items: flex-start; gap: 4px;">
+        <div class="brand" style="flex-direction: column; align-items: flex-start; gap: 4px;">
           <img src="assets/img/logo.png" alt="Logo Sala 360" class="custom-logo">
           <p class="eyebrow" style="margin: 0; padding-left: 4px;">Espaço Coworking Gov.br</p>
         </div>
@@ -27,8 +26,7 @@
         </nav>
       </div>
       <div class="sidebar-footer">
-        <button class="ghost-btn" id="themeToggle" type="button">🌙 Tema</button>
-        <button class="danger-btn" id="logoutBtn" type="button">Sair</button>
+        <button class="danger-btn full" id="logoutBtn" type="button" style="width: 100%;">Sair</button>
       </div>
     </aside>
 
@@ -38,7 +36,10 @@
           <span class="eyebrow">Histórico do usuário</span>
           <h2>Minhas reservas</h2>
         </div>
-        <div class="user-chip" id="userChip"></div>
+        <div style="display: flex; align-items: center; gap: 16px;">
+          <button class="ghost-btn" id="themeToggle" type="button">🌙 Tema</button>
+          <div class="user-chip" id="userChip"></div>
+        </div>
       </header>
 
       <article class="card">
@@ -65,4 +66,4 @@
   <script src="assets/js/app.js"></script>
   <script src="assets/js/minhas-reservas.js"></script>
 </body>
-</html>
+</html> 
