@@ -55,17 +55,3 @@ Para atender aos critérios técnicos, o sistema conta com as seguintes decisõe
 * **Estados da Interface (Feedback do Sistema):** * **Loading:** Adicionada tela de carregamento na transição entre o Login e o Dashboard (feedback de processamento).
   * **Sucesso/Erro:** Sistema de notificações por `Toast` (avisos flutuantes verdes/vermelhos) e campos de formulário que ficam com borda avermelhada alertando falha no preenchimento.
   * **Empty States:** Mensagens amigáveis para quando as listas (agenda ou reservas) estiverem vazias.
-
----
-
-## Log de Rastreabilidade (Entrega 5)
-
-Abaixo estão as principais decisões e justificativas técnicas que orientaram a evolução do protótipo (Entrega 4) para a implementação funcional (Entrega 5):
-
-| Elemento | Protótipo | Implementação | Justificativa |
-| :--- | :--- | :--- | :--- |
-| **Armazenamento de Dados** | N/A | Implementado (`localStorage`) | Necessário para viabilizar a gravação, consulta e cancelamento das reservas em ambiente local, garantindo um fluxo funcional coeso. |
-| **Formulários (Nova Reserva)** | Simples | Com validações complexas | Adicionamos restrições lógicas (horário comercial, término > início, bloqueio de conflitos de horário em mesma vaga) para refletir o comportamento do mundo real. |
-| **Animação de Carregamento** | Não prevista | Adicionada | Inclusão de um *loading state* (classe CSS) para comunicar de forma visual ao usuário que o sistema está processando seus dados. |
-| **Banner Offline** | Não previsto | Adicionado | Uso da detecção de rede via JS para gerar um alerta de perda de conexão, enriquecendo o trato de recursos de hardware. |
-| **Tema Dark/Light** | Alternância prevista | Funcional | Consolidada usando variáveis nativas do CSS (`[data-theme="dark"]`), garantindo transição global sem carregar novos arquivos. |
