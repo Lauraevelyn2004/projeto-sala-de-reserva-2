@@ -54,4 +54,4 @@ Para atender aos critérios técnicos, o sistema conta com as seguintes decisõe
 * **Funcionalidades Offline:** Implementamos um observador de rede (`window.addEventListener('offline')`). Caso o usuário perca a conexão, a interface reage dinamicamente ativando uma classe no `body` que exibe um alerta superior vermelho, alertando sobre a indisponibilidade de algumas ações. O `localStorage` garante que as informações visualizadas permaneçam em tela.
 * **Estados da Interface (Feedback do Sistema):** * **Loading:** Adicionada tela de carregamento na transição entre o Login e o Dashboard (feedback de processamento).
   * **Sucesso/Erro:** Sistema de notificações por `Toast` (avisos flutuantes verdes/vermelhos) e campos de formulário que ficam com borda avermelhada alertando falha no preenchimento.
-  * **Empty States:** Mensagens amigáveis para quando as listas (agenda ou reservas) estiverem vazias.
+  * **Empty States:** Mensagens amigáveis para quando as listas (agenda ou reservas) estiverem vazias. laura
